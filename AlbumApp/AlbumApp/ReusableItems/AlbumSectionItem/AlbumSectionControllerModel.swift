@@ -13,19 +13,16 @@ class AlbumSectionControllerModel: ListDiffable {
     var backgroundColor: UIColor
     var albumTitle: String
     var onClick: (() -> Void)?
-    var thumbnail: UIImage
 
     init(
         id: String,
         albumTitle: String,
         backgroundColor: UIColor,
-        thumbnail: UIImage,
         onClick: (() -> Void)?
     ) {
         self.id = id
         self.backgroundColor = backgroundColor
         self.onClick = onClick
-        self.thumbnail = thumbnail
         self.albumTitle = albumTitle
     }
 

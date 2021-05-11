@@ -59,7 +59,7 @@ class LandingPageVC: UIViewController {
         self.listItems.append(
             SpacerSectionControllerModel(
                 id: "top_spacer",
-                backgroundColor: .clear
+                backgroundColor: UIColor(red: 0.63, green: 0.10, blue: 0.49, alpha: 1.00)
             )
         )
         
@@ -68,8 +68,7 @@ class LandingPageVC: UIViewController {
                 AlbumSectionControllerModel(
                     id: "album_section_\(album.id)",
                     albumTitle: album.title,
-                    backgroundColor: .lightGray,
-                    thumbnail: UIImage(named: "placeholderImage")!,
+                    backgroundColor: UIColor(red: 0.93, green: 0.25, blue: 0.40, alpha: 1.00),
                     onClick: {
                         print(self.TAG + " >>> initiating album_section_\(album.id)...")
                         self.navigationController?.pushViewController(
@@ -88,7 +87,7 @@ class LandingPageVC: UIViewController {
             self.listItems.append(
                 SpacerSectionControllerModel(
                     id: "album_spacer_\(album.id)",
-                    backgroundColor: .clear
+                    backgroundColor: UIColor(red: 0.63, green: 0.10, blue: 0.49, alpha: 1.00)
                 )
             )
         }

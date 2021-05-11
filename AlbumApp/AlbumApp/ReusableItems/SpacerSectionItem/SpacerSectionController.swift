@@ -20,7 +20,7 @@ class SpacerSectionController: ListSectionController {
     override func sizeForItem(at _: Int) -> CGSize {
         return CGSize(
             width: self.collectionContext!.containerSize.width,
-            height: 12
+            height: 2
         )
     }
 

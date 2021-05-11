@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 extension UIApplication {
     func getStatusBarYOffset() -> CGFloat {
-        return UIApplication.shared.statusBarFrame.height
+        return UIApplication.shared.statusBarFrame.height + 10
     }
 
     func doesDeviceHasTopNotch() -> Bool {

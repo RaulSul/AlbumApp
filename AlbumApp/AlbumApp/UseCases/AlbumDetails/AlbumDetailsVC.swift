@@ -33,13 +33,22 @@ class AlbumDetailsVC: UIViewController {
         self.view.addSubview(self.rootView)
         
         viewModel.downloadJson { _ in
-            self.rootView.imageAndThumbnailURLs = self.viewModel.albumPhotoURLs
+            self.rootView.imageAndThumbnailURLsAndTitle = self.viewModel.imageThumbnailTitleData
             self.rootView.collectionView.reloadData()
         }
         
         rootView.headerView.backButton.addTarget(self, action: #selector(backButtonClicked), for: .touchUpInside)
         
         rootView.headerView.albumTitleLabel.text = viewModel.albumTitle
+        rootView.onSelectCell = { url, title in
+            self.navigationController?.pushViewController(
+                PhotoViewController(
+                    photoURL: url,
+                    photoTitle: title
+                ),
+                animated: true
+            )
+        }
         
         //MARK: - Layout
         self.rootView.snp.remakeConstraints { make in

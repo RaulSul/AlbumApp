@@ -15,7 +15,7 @@ class AlbumSectionCell: UICollectionViewCell {
     
     lazy var albumImageView: UIImageView = {
         let imageView: UIImageView = UIImageView()
-        if let image: UIImage = UIImage(named: "placeholderImage") {
+        if let image: UIImage = UIImage(named: "albumIcon") {
             imageView.image = image
         }
         return imageView
@@ -96,7 +96,6 @@ extension AlbumSectionCell: ListBindable {
         guard let model = viewModel as? AlbumSectionControllerModel else { fatalError() }
         self.modelObject = model
         self.backgroundColor = self.modelObject?.backgroundColor
-        self.albumImageView.image = modelObject?.thumbnail
         self.albumTitleLabel.text = modelObject?.albumTitle
     }
 }

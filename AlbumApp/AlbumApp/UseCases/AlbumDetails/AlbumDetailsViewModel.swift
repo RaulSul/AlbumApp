@@ -26,7 +26,7 @@ typealias AlbumPhotos = [AlbumPhotoElement]
 //MARK: - AlbumDetailsVM
 
 class AlbumDetailsViewModel {
-    var albumPhotoURLs: [(URL, URL)] = []
+    var imageThumbnailTitleData: [(URL, URL, String)] = []
     var albumTitle: String
     var albumId: Int
     
@@ -43,14 +43,12 @@ class AlbumDetailsViewModel {
                 if let data = data {
                     if let decodedResponse = try? JSONDecoder().decode(AlbumPhotos.self, from: data) {
                         DispatchQueue.main.async {
-//                            self.albumPhotos = decodedResponse
-                            
                             decodedResponse.forEach { photo in
                                 if photo.albumID == self.albumId {
                                     guard let imageUrl: URL = URL(string: photo.url) else { return }
                                     guard let thumbnailUrl: URL = URL(string: photo.thumbnailURL) else { return }
-                                    
-                                    self.albumPhotoURLs.append((imageUrl, thumbnailUrl))
+                                    let title: String = photo.title
+                                    self.imageThumbnailTitleData.append((imageUrl, thumbnailUrl, title))
                                 }
                             }
                             onSuccess?(decodedResponse)

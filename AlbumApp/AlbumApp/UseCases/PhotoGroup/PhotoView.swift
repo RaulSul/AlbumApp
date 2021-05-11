@@ -1,32 +1,36 @@
 //
-//  LandinPgeView.swift
+//  PhotoView.swift
 //  AlbumApp
 //
 //  Created by Raul Sulaimanov on 11.05.21.
 //
 
 import UIKit
-import SnapKit
 
-class LandingPageView: UIView {
-
-    lazy var headerView: LandingPageHeaderView = {
-        return LandingPageHeaderView()
+class PhotoView: UIView {
+    
+    var imageURL: [(URL, URL)] = []
+    
+    lazy var headerView: PhotoHeaderView = {
+        return PhotoHeaderView()
     }()
     
-    lazy var collectionView: UICollectionView = {
-        let flowLayout = UICollectionViewFlowLayout()
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
-        collectionView.backgroundColor = .lightGray
-        collectionView.alwaysBounceVertical = true
+    lazy var photoImageView: UIImageView = {
+        let imageView: UIImageView = UIImageView()
+        if let image: UIImage = UIImage(named: "placeholderImage") {
+            imageView.image = image
+        }
         
-        return collectionView
+        return imageView
     }()
+    
     
     init() {
         super.init(frame: .zero)
+        backgroundColor = .black
+        
         addSubview(headerView)
-        addSubview(collectionView)
+        addSubview(photoImageView)
         
         //MARK: - Layout
         
@@ -43,10 +47,10 @@ class LandingPageView: UIView {
             }
         }
         
-        collectionView.snp.remakeConstraints { make in
-            make.top.equalTo(headerView.snp.bottom)
-            make.trailing.equalTo(snp.trailing)
+        photoImageView.snp.remakeConstraints { make in
             make.leading.equalTo(snp.leading)
+            make.trailing.equalTo(snp.trailing)
+            make.top.equalTo(headerView.snp.bottom)
             make.bottom.equalTo(snp.bottom)
         }
     }
@@ -54,7 +58,4 @@ class LandingPageView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
-
 }

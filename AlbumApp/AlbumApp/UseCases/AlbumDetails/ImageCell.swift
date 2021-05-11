@@ -10,6 +10,9 @@ import SnapKit
 
 class ImageCell: UICollectionViewCell {
     
+    var imageURL: URL?
+    var photoTitle: String?
+    
     lazy var albumImageView: UIImageView = {
         let imgView: UIImageView = UIImageView()
         if let image: UIImage = UIImage(named: "placeholderImage") {
@@ -22,6 +25,10 @@ class ImageCell: UICollectionViewCell {
         super.init(frame: frame)
         
         contentView.addSubview(albumImageView)
+        contentView.layer.borderWidth = 2
+        contentView.layer.borderColor = UIColor.gray.cgColor
+        contentView.layer.masksToBounds = true
+        contentView.layer.cornerRadius = 12
         
         albumImageView.snp.remakeConstraints { make in
             make.edges.equalTo(contentView.snp.edges)
@@ -29,8 +36,8 @@ class ImageCell: UICollectionViewCell {
         
     }
     
-    func setUpCellWithImage(url: URL) {
-        albumImageView.downloaded(from: url)
+    func setUpCellWithThumbnailImage(with thumnailUrl: URL) {
+        albumImageView.downloaded(from: thumnailUrl)
     }
     
     required init?(coder: NSCoder) {
