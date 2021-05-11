@@ -11,13 +11,19 @@ import IGListKit
 class AlbumSectionControllerModel: ListDiffable {
     let id: String
     var backgroundColor: UIColor
+    var onClick: (() -> Void)?
+    var thumbnail: UIImage
 
     init(
         id: String,
-        backgroundColor: UIColor
+        backgroundColor: UIColor,
+        thumbnail: UIImage,
+        onClick: (() -> Void)?
     ) {
         self.id = id
         self.backgroundColor = backgroundColor
+        self.onClick = onClick
+        self.thumbnail = thumbnail
     }
 
     func diffIdentifier() -> NSObjectProtocol {

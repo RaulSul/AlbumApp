@@ -20,7 +20,7 @@ class AlbumSectionController: ListSectionController {
     override func sizeForItem(at _: Int) -> CGSize {
         return CGSize(
             width: self.collectionContext!.containerSize.width,
-            height: 24
+            height: 48
         )
     }
 

@@ -61,7 +61,11 @@ class LandingPageVC: UIViewController {
             self.listItems.append(
                 AlbumSectionControllerModel(
                     id: "album_section_\(count)",
-                    backgroundColor: .lightGray
+                    backgroundColor: .lightGray,
+                    thumbnail: UIImage(named: "placeholderImage")!,
+                    onClick: {
+                        print("album_section_\(count) has been tapped")
+                    }
                 )
             )
             
