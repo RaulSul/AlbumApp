@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  AlbumDetailsVC.swift
 //  AlbumApp
 //
 //  Created by Raul Sulaimanov on 11.05.21.
@@ -9,15 +9,15 @@ import UIKit
 import IGListKit
 import SnapKit
 
-class LandingPageVC: UIViewController {
+class AlbumDetailsVC: UIViewController {
     
     var TAG: String = "[LandingPageVC]"
     
     var listItems = [ListDiffable]()
     var adapter: ListAdapter?
 
-    lazy var rootView: LandingPageView = {
-        let view: LandingPageView = LandingPageView()
+    lazy var rootView: AlbumDetailsView = {
+        let view: AlbumDetailsView = AlbumDetailsView()
         
         return view
     }()
@@ -61,7 +61,6 @@ class LandingPageVC: UIViewController {
                     thumbnail: UIImage(named: "placeholderImage")!,
                     onClick: {
                         print("album_section_\(count) has been tapped")
-                        self.present(AlbumDetailsVC(), animated: true)
                     }
                 )
             )
@@ -85,7 +84,7 @@ class LandingPageVC: UIViewController {
 }
 
 
-extension LandingPageVC: ListAdapterDataSource {
+extension AlbumDetailsVC: ListAdapterDataSource {
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
         return self.listItems
     }

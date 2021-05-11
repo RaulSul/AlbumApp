@@ -27,6 +27,9 @@
 		C4504C17264A80BA00AD8228 /* AlbumSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4504C16264A80BA00AD8228 /* AlbumSectionController.swift */; };
 		C4504C19264A80C500AD8228 /* AlbumSectionControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4504C18264A80C500AD8228 /* AlbumSectionControllerModel.swift */; };
 		C4504C1B264A80D400AD8228 /* AlbumSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4504C1A264A80D400AD8228 /* AlbumSectionCell.swift */; };
+		C4504C1E264A907100AD8228 /* AlbumDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4504C1D264A907100AD8228 /* AlbumDetailsVC.swift */; };
+		C4504C20264A908C00AD8228 /* AlbumDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4504C1F264A908C00AD8228 /* AlbumDetailsView.swift */; };
+		C4504C23264A90E100AD8228 /* AlbumDetailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4504C22264A90E100AD8228 /* AlbumDetailsHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +80,9 @@
 		C4504C16264A80BA00AD8228 /* AlbumSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumSectionController.swift; sourceTree = "<group>"; };
 		C4504C18264A80C500AD8228 /* AlbumSectionControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumSectionControllerModel.swift; sourceTree = "<group>"; };
 		C4504C1A264A80D400AD8228 /* AlbumSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumSectionCell.swift; sourceTree = "<group>"; };
+		C4504C1D264A907100AD8228 /* AlbumDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsVC.swift; sourceTree = "<group>"; };
+		C4504C1F264A908C00AD8228 /* AlbumDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsView.swift; sourceTree = "<group>"; };
+		C4504C22264A90E100AD8228 /* AlbumDetailsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsHeaderView.swift; sourceTree = "<group>"; };
 		D33E74D9FDABF96394FE133C /* Pods-AlbumApp-AlbumAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlbumApp-AlbumAppUITests.release.xcconfig"; path = "Target Support Files/Pods-AlbumApp-AlbumAppUITests/Pods-AlbumApp-AlbumAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E710CFFA214B1180A82B32E9 /* Pods_AlbumAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlbumAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -208,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				C4504C0A264A7D0000AD8228 /* LandingPageGroup */,
+				C4504C21264A909400AD8228 /* AlbumDetails */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -220,6 +227,16 @@
 				C4504C1A264A80D400AD8228 /* AlbumSectionCell.swift */,
 			);
 			path = AlbumSectionItem;
+			sourceTree = "<group>";
+		};
+		C4504C21264A909400AD8228 /* AlbumDetails */ = {
+			isa = PBXGroup;
+			children = (
+				C4504C1D264A907100AD8228 /* AlbumDetailsVC.swift */,
+				C4504C1F264A908C00AD8228 /* AlbumDetailsView.swift */,
+				C4504C22264A90E100AD8228 /* AlbumDetailsHeaderView.swift */,
+			);
+			path = AlbumDetails;
 			sourceTree = "<group>";
 		};
 		FEF7E18ED06D8160BD80C7EA /* Pods */ = {
@@ -480,9 +497,12 @@
 				C4504BDA264A7C3D00AD8228 /* LandingPageVC.swift in Sources */,
 				C4504BD6264A7C3D00AD8228 /* AppDelegate.swift in Sources */,
 				C4504C19264A80C500AD8228 /* AlbumSectionControllerModel.swift in Sources */,
+				C4504C23264A90E100AD8228 /* AlbumDetailsHeaderView.swift in Sources */,
 				C4504C17264A80BA00AD8228 /* AlbumSectionController.swift in Sources */,
 				C4504C0E264A7F4900AD8228 /* SpacerSectionController.swift in Sources */,
 				C4504BD8264A7C3D00AD8228 /* SceneDelegate.swift in Sources */,
+				C4504C1E264A907100AD8228 /* AlbumDetailsVC.swift in Sources */,
+				C4504C20264A908C00AD8228 /* AlbumDetailsView.swift in Sources */,
 				C4504BE0264A7C3D00AD8228 /* AlbumApp.xcdatamodeld in Sources */,
 				C4504C12264A7F8A00AD8228 /* SpacerSectionCell.swift in Sources */,
 			);
