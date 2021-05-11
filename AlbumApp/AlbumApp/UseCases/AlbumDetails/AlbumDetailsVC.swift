@@ -26,6 +26,8 @@ class AlbumDetailsVC: UIViewController {
         super.viewDidLoad()
         self.view.addSubview(self.rootView)
         
+        rootView.headerView.backButton.addTarget(self, action: #selector(backButtonClicked), for: .touchUpInside)
+        
         //MARK: IGListKitAdapter
         let updater = ListAdapterUpdater()
         let adapter = ListAdapter(updater: updater, viewController: self)
@@ -79,6 +81,10 @@ class AlbumDetailsVC: UIViewController {
             self.adapter?.performUpdates(animated: true, completion: nil)
             print(self.TAG + " >>> Invalidated...")
         }
+    }
+    
+    @objc func backButtonClicked() {
+        self.navigationController?.popViewController(animated: true)
     }
     
 }

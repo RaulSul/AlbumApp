@@ -35,7 +35,13 @@ class AlbumDetailsView: UIView {
             make.leading.equalTo(snp.leading)
             make.top.equalTo(snp.top)
             make.trailing.equalTo(snp.trailing)
-            make.height.equalTo(42)
+            
+            switch UIApplication.shared.doesDeviceHasTopNotch() {
+            case true:
+                make.height.equalTo(42 + UIApplication.shared.getStatusBarYOffset())
+            case false:
+                make.height.equalTo(42)
+            }
         }
         
         collectionView.snp.remakeConstraints { make in

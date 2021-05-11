@@ -30,6 +30,7 @@
 		C4504C1E264A907100AD8228 /* AlbumDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4504C1D264A907100AD8228 /* AlbumDetailsVC.swift */; };
 		C4504C20264A908C00AD8228 /* AlbumDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4504C1F264A908C00AD8228 /* AlbumDetailsView.swift */; };
 		C4504C23264A90E100AD8228 /* AlbumDetailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4504C22264A90E100AD8228 /* AlbumDetailsHeaderView.swift */; };
+		C4504C25264AA1F500AD8228 /* UIApplication+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4504C24264AA1F500AD8228 /* UIApplication+Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		C4504C1D264A907100AD8228 /* AlbumDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsVC.swift; sourceTree = "<group>"; };
 		C4504C1F264A908C00AD8228 /* AlbumDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsView.swift; sourceTree = "<group>"; };
 		C4504C22264A90E100AD8228 /* AlbumDetailsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsHeaderView.swift; sourceTree = "<group>"; };
+		C4504C24264AA1F500AD8228 /* UIApplication+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Helpers.swift"; sourceTree = "<group>"; };
 		D33E74D9FDABF96394FE133C /* Pods-AlbumApp-AlbumAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlbumApp-AlbumAppUITests.release.xcconfig"; path = "Target Support Files/Pods-AlbumApp-AlbumAppUITests/Pods-AlbumApp-AlbumAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E710CFFA214B1180A82B32E9 /* Pods_AlbumAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlbumAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -153,6 +155,7 @@
 				C4504BD5264A7C3D00AD8228 /* AppDelegate.swift */,
 				C4504BD7264A7C3D00AD8228 /* SceneDelegate.swift */,
 				C4504C0B264A7F0A00AD8228 /* UICollectionView+Helpers.swift */,
+				C4504C24264AA1F500AD8228 /* UIApplication+Helpers.swift */,
 				C4504C14264A7FA200AD8228 /* ReusableItems */,
 				C4504C15264A7FB200AD8228 /* UseCases */,
 				C4504BDB264A7C3D00AD8228 /* Main.storyboard */,
@@ -495,6 +498,7 @@
 				C4504C09264A7CF200AD8228 /* LandingPageView.swift in Sources */,
 				C4504C1B264A80D400AD8228 /* AlbumSectionCell.swift in Sources */,
 				C4504BDA264A7C3D00AD8228 /* LandingPageVC.swift in Sources */,
+				C4504C25264AA1F500AD8228 /* UIApplication+Helpers.swift in Sources */,
 				C4504BD6264A7C3D00AD8228 /* AppDelegate.swift in Sources */,
 				C4504C19264A80C500AD8228 /* AlbumSectionControllerModel.swift in Sources */,
 				C4504C23264A90E100AD8228 /* AlbumDetailsHeaderView.swift in Sources */,

@@ -24,6 +24,7 @@ class LandingPageVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
         self.view.addSubview(self.rootView)
         
         //MARK: IGListKitAdapter
@@ -61,7 +62,8 @@ class LandingPageVC: UIViewController {
                     thumbnail: UIImage(named: "placeholderImage")!,
                     onClick: {
                         print("album_section_\(count) has been tapped")
-                        self.present(AlbumDetailsVC(), animated: true)
+//                        self.present(AlbumDetailsVC(), animated: true)
+                        self.navigationController?.pushViewController(AlbumDetailsVC(), animated: true)
                     }
                 )
             )

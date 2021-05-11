@@ -35,13 +35,14 @@ class AlbumDetailsHeaderView: UIView {
         backButton.snp.remakeConstraints { make in
             make.leading.equalTo(snp.leading).offset(24)
             make.height.width.equalTo(24)
-            make.centerY.equalTo(snp.centerY)
+            make.centerY.equalTo(snp.centerY).offset(12)
         }
         
         albumTitleLabel.snp.remakeConstraints { make in
             make.leading.equalTo(backButton.snp.trailing).offset(48)
             make.height.equalTo(48)
             make.trailing.equalTo(snp.trailing).offset(-72)
+            make.centerY.equalTo(snp.centerY).offset(12)
         }
     }
     
