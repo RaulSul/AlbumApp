@@ -33,7 +33,7 @@ class AlbumDetailsVC: UIViewController {
         self.view.addSubview(self.rootView)
         
         viewModel.downloadJson { _ in
-            self.rootView.images = self.viewModel.albumPhotoURLs
+            self.rootView.imageAndThumbnailURLs = self.viewModel.albumPhotoURLs
             self.rootView.collectionView.reloadData()
         }
         
@@ -45,6 +45,8 @@ class AlbumDetailsVC: UIViewController {
         self.rootView.snp.remakeConstraints { make in
             make.edges.equalTo(self.view.snp.edges)
         }
+        
+        print(TAG + " >>> has been loaded...")
     }
     
     @objc func backButtonClicked() {

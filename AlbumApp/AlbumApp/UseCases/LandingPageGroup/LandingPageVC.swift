@@ -64,20 +64,18 @@ class LandingPageVC: UIViewController {
         )
         
         for album in albums {
-            
             self.listItems.append(
                 AlbumSectionControllerModel(
                     id: "album_section_\(album.id)",
-                    albumTitle: "\(album.title)",
+                    albumTitle: album.title,
                     backgroundColor: .lightGray,
                     thumbnail: UIImage(named: "placeholderImage")!,
                     onClick: {
-                        print("album_section_\(album.id) has been tapped")
-//                        self.present(AlbumDetailsVC(), animated: true)
+                        print(self.TAG + " >>> initiating album_section_\(album.id)...")
                         self.navigationController?.pushViewController(
                             AlbumDetailsVC(
                                 viewModel: AlbumDetailsViewModel(
-                                    albumTitle: "\(album.title)",
+                                    albumTitle: album.title,
                                     albumId: album.id
                                 )
                             ),

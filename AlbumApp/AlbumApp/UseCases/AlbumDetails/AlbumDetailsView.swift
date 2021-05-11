@@ -9,8 +9,7 @@ import UIKit
 
 class AlbumDetailsView: UIView, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var images: [URL] = []
-    
+    var imageAndThumbnailURLs: [(URL, URL)] = []
     
     lazy var headerView: AlbumDetailsHeaderView = {
         return AlbumDetailsHeaderView()
@@ -18,6 +17,14 @@ class AlbumDetailsView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
     
     lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
+        
+        flowLayout.itemSize = CGSize(width: 150, height: 150)
+        flowLayout.minimumInteritemSpacing = 25
+        flowLayout.sectionInset.left = 25
+        flowLayout.sectionInset.right = 25
+        flowLayout.sectionInset.top = 25
+        flowLayout.sectionInset.bottom = 25
+        
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.backgroundColor = .clear
         collectionView.alwaysBounceVertical = true
@@ -57,16 +64,14 @@ class AlbumDetailsView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        var number = images.count
-        
-        return number
+        return imageAndThumbnailURLs.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ImageCell
         
-        if !(images.isEmpty) {
-            cell.setUpCellWithImage(url: images[indexPath.item])
+        if !(imageAndThumbnailURLs.isEmpty) {
+            cell.setUpCellWithImage(url: imageAndThumbnailURLs[indexPath.item].1)
         }
         
         return cell

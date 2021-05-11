@@ -60,21 +60,21 @@ class AlbumSectionCell: UICollectionViewCell {
         }
         
         albumImageView.snp.remakeConstraints { make in
-            make.leading.equalTo(contentView.snp.leading).offset(5)
+            make.leading.equalTo(contentView.snp.leading).offset(10)
             make.width.height.equalTo(24)
             make.centerY.equalTo(contentView.snp.centerY)
         }
         
         rightChevronImageView.snp.remakeConstraints { make in
-            make.trailing.equalTo(contentView.snp.trailing).offset(-5)
-            make.width.height.equalTo(24)
+            make.trailing.equalTo(contentView.snp.trailing).offset(-10)
+            make.width.height.equalTo(12)
             make.centerY.equalTo(contentView.snp.centerY)
         }
         
         albumTitleLabel.snp.remakeConstraints { make in
-            make.leading.equalTo(albumImageView.snp.trailing).offset(5)
+            make.leading.equalTo(albumImageView.snp.trailing).offset(10)
             make.height.equalTo(24)
-            make.trailing.equalTo(rightChevronImageView.snp.leading).offset(-5)
+            make.trailing.equalTo(rightChevronImageView.snp.leading).offset(-10)
             make.centerY.equalTo(contentView.snp.centerY)
             
         }
