@@ -6,15 +6,12 @@
 //
 
 import UIKit
-import IGListKit
 import SnapKit
 
 class AlbumDetailsVC: UIViewController {
     
-    var TAG: String = "[LandingPageVC]"
-    
-    var listItems = [ListDiffable]()
-    var adapter: ListAdapter?
+    var TAG: String = "[AlbumDetailsVC]"
+    var viewModel: AlbumDetailsViewModel
 
     lazy var rootView: AlbumDetailsView = {
         let view: AlbumDetailsView = AlbumDetailsView()
@@ -22,64 +19,31 @@ class AlbumDetailsVC: UIViewController {
         return view
     }()
     
+    init(viewModel: AlbumDetailsViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(self.rootView)
         
+        viewModel.downloadJson { _ in
+            self.rootView.images = self.viewModel.albumPhotoURLs
+            self.rootView.collectionView.reloadData()
+        }
+        
         rootView.headerView.backButton.addTarget(self, action: #selector(backButtonClicked), for: .touchUpInside)
         
-        //MARK: IGListKitAdapter
-        let updater = ListAdapterUpdater()
-        let adapter = ListAdapter(updater: updater, viewController: self)
-        adapter.collectionView = self.rootView.collectionView
-        adapter.dataSource = self
-        self.adapter = adapter
-        
-        self.invalidate()
+        rootView.headerView.albumTitleLabel.text = viewModel.albumTitle
         
         //MARK: - Layout
         self.rootView.snp.remakeConstraints { make in
             make.edges.equalTo(self.view.snp.edges)
-        }
-    }
-
-//MARK: - Invalidation Procedures
-    func invalidate() {
-        self.listItems = []
-        
-        self.listItems.append(
-            SpacerSectionControllerModel(
-                id: "top_spacer",
-                backgroundColor: .cyan
-            )
-        )
-        var count: Int = 0
-        
-        for item in 0...3 {
-            self.listItems.append(
-                AlbumSectionControllerModel(
-                    id: "album_section_\(count)",
-                    backgroundColor: .lightGray,
-                    thumbnail: UIImage(named: "placeholderImage")!,
-                    onClick: {
-                        print("album_section_\(count) has been tapped")
-                    }
-                )
-            )
-            
-            self.listItems.append(
-                SpacerSectionControllerModel(
-                    id: "album_spacer_\(count)",
-                    backgroundColor: .cyan
-                )
-            )
-            
-            count += 1
-        }
-        
-        DispatchQueue.main.async {
-            self.adapter?.performUpdates(animated: true, completion: nil)
-            print(self.TAG + " >>> Invalidated...")
         }
     }
     
@@ -88,19 +52,3 @@ class AlbumDetailsVC: UIViewController {
     }
     
 }
-
-
-extension AlbumDetailsVC: ListAdapterDataSource {
-    func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-        return self.listItems
-    }
-    
-    func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
-        return UICollectionView.sectionControllerForObject(modelObject: object)
-    }
-    
-    func emptyView(for listAdapter: ListAdapter) -> UIView? {
-        return nil
-    }
-}
-

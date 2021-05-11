@@ -15,6 +15,10 @@ class LandingPageVC: UIViewController {
     
     var listItems = [ListDiffable]()
     var adapter: ListAdapter?
+    
+    var albums: Albums = []
+    
+    var viewModel: LandingPageViewModel?
 
     lazy var rootView: LandingPageView = {
         let view: LandingPageView = LandingPageView()
@@ -34,7 +38,13 @@ class LandingPageVC: UIViewController {
         adapter.dataSource = self
         self.adapter = adapter
         
-        self.invalidate()
+        self.viewModel = LandingPageViewModel()
+        self.viewModel?.downloadJson { albums in
+            self.albums = albums
+            self.invalidate()
+        }
+        
+//        self.invalidate()
         
         //MARK: - Layout
         self.rootView.snp.remakeConstraints { make in
@@ -49,33 +59,40 @@ class LandingPageVC: UIViewController {
         self.listItems.append(
             SpacerSectionControllerModel(
                 id: "top_spacer",
-                backgroundColor: .cyan
+                backgroundColor: .clear
             )
         )
-        var count: Int = 0
         
-        for item in 0...3 {
+        for album in albums {
+            
             self.listItems.append(
                 AlbumSectionControllerModel(
-                    id: "album_section_\(count)",
+                    id: "album_section_\(album.id)",
+                    albumTitle: "\(album.title)",
                     backgroundColor: .lightGray,
                     thumbnail: UIImage(named: "placeholderImage")!,
                     onClick: {
-                        print("album_section_\(count) has been tapped")
+                        print("album_section_\(album.id) has been tapped")
 //                        self.present(AlbumDetailsVC(), animated: true)
-                        self.navigationController?.pushViewController(AlbumDetailsVC(), animated: true)
+                        self.navigationController?.pushViewController(
+                            AlbumDetailsVC(
+                                viewModel: AlbumDetailsViewModel(
+                                    albumTitle: "\(album.title)",
+                                    albumId: album.id
+                                )
+                            ),
+                            animated: true
+                        )
                     }
                 )
             )
             
             self.listItems.append(
                 SpacerSectionControllerModel(
-                    id: "album_spacer_\(count)",
-                    backgroundColor: .cyan
+                    id: "album_spacer_\(album.id)",
+                    backgroundColor: .clear
                 )
             )
-            
-            count += 1
         }
         
         DispatchQueue.main.async {

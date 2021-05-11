@@ -17,7 +17,7 @@ class LandingPageView: UIView {
         collectionView.backgroundColor = .clear
         collectionView.alwaysBounceVertical = true
         
-        collectionView.backgroundColor = .orange
+        collectionView.backgroundColor = .white
         
         return collectionView
     }()

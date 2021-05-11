@@ -22,6 +22,7 @@ class AlbumDetailsHeaderView: UIView {
         let lbl: UILabel = UILabel()
         lbl.text = "< Album Title >"
         lbl.font = .systemFont(ofSize: 24)
+        lbl.textAlignment = .center
         return lbl
     }()
 

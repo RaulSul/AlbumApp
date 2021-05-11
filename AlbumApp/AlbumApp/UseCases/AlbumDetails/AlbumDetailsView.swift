@@ -7,7 +7,10 @@
 
 import UIKit
 
-class AlbumDetailsView: UIView {
+class AlbumDetailsView: UIView, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    var images: [URL] = []
+    
     
     lazy var headerView: AlbumDetailsHeaderView = {
         return AlbumDetailsHeaderView()
@@ -18,9 +21,10 @@ class AlbumDetailsView: UIView {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.backgroundColor = .clear
         collectionView.alwaysBounceVertical = true
-        
+        collectionView.register(ImageCell.self, forCellWithReuseIdentifier: "imageCell")
         collectionView.backgroundColor = .purple
-        
+        collectionView.delegate = self
+        collectionView.dataSource = self
         return collectionView
     }()
     
@@ -50,6 +54,22 @@ class AlbumDetailsView: UIView {
             make.leading.equalTo(snp.leading)
             make.bottom.equalTo(snp.bottom)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        var number = images.count
+        
+        return number
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ImageCell
+        
+        if !(images.isEmpty) {
+            cell.setUpCellWithImage(url: images[indexPath.item])
+        }
+        
+        return cell
     }
     
     required init?(coder: NSCoder) {

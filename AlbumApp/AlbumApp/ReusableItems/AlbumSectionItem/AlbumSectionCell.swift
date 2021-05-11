@@ -97,5 +97,6 @@ extension AlbumSectionCell: ListBindable {
         self.modelObject = model
         self.backgroundColor = self.modelObject?.backgroundColor
         self.albumImageView.image = modelObject?.thumbnail
+        self.albumTitleLabel.text = modelObject?.albumTitle
     }
 }
