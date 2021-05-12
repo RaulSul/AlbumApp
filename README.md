@@ -8,5 +8,6 @@
 
 ### Quicktype
 [Quicktype](https://app.quicktype.io) was used for quicker creation of the JSON schema.
+
 ---
 The project was done using Xcode Version 12.5 (12E262)
